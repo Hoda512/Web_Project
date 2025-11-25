@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
         
         if (password_verify($pass, $user["Password"])) {
             $_SESSION["Name"] = $user["Name"];
-            $_SESSION["User_id"] = $user["User_id"];
+            $_SESSION["User_Id"] = $user["User_Id"];
             $_SESSION["Role"] = $user["Role"];
             $_SESSION["Email"] = $user["Email"];
             

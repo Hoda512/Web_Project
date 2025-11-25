@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
         VALUES ('$name', '$email', '$hashed_password', 'user')";
     
     if(mysqli_query($conn, $query)) {
-        echo "<script>alert('Registration successful!'); window.location='../Html/login.php';</script>";
+        echo "<script>alert('Registration successful!'); window.location='../../Html/Home.php';</script>";
     } else {
         echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.history.back();</script>";
     }
