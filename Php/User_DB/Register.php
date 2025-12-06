@@ -1,6 +1,6 @@
 <?php
-if(isset($_POST['submit'])) {
-    $name = $_POST['Name'];
+if(isset($_POST['Register_Submit'])) {
+    $name = $_POST['FirstName'] . ' ' . $_POST['LastName'];
     $email = $_POST['Email'];
     $pass = $_POST['Password'];
     $confirmPassword = $_POST['ConfirmPassword'];
@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
     }
     
     require_once '../Config/config.php'; 
-    if(!$conn) {
+    if(!$con) {
         die(mysqli_connect_error());
     }
 
@@ -22,12 +22,12 @@ if(isset($_POST['submit'])) {
     $query = "INSERT INTO `users`(`Name`, `Email`, `Password`, `Role`) 
         VALUES ('$name', '$email', '$hashed_password', 'user')";
     
-    if(mysqli_query($conn, $query)) {
-        echo "<script>alert('Registration successful!'); window.location='../../Html/Home.php';</script>";
+    if(mysqli_query($con, $query)) {
+        echo "<script>alert('Registration successful!'); window.location='../../Html/index.php';</script>";
     } else {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "'); window.history.back();</script>";
+        echo "<script>alert('Error: " . mysqli_error($con) . "'); window.history.back();</script>";
     }
 
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>
